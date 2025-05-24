@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - Verde Crust</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="admin-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h1>🍕 Verde Admin</h1>
+      <nav>
+        <a href="#" class="nav-link active" onclick="showSection('dashboard')">Dashboard</a>
+        <a href="#" class="nav-link" onclick="showSection('orders')">Orders</a>
+        <a href="#" class="nav-link" onclick="logout()">Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-panel">
+      <!-- Top Bar -->
+      <div class="topbar">
+        <h2 id="sectionTitle">Dashboard</h2>
+        <div id="adminEmail" class="admin-email"></div>
+      </div>
+
+      <!-- Dashboard Section -->
+      <section id="dashboardSection">
+        <div class="dashboard-cards">
+          <div class="card"><h3>Orders</h3><p id="orderCount">--</p></div>
+          <div class="card"><h3>Revenue</h3><p id="revenueAmount">₹--</p></div>
+          <div class="card"><h3>Today</h3><p id="todayCount">--</p></div>
+        </div>
+      </section>
+
+      <!-- Orders Section -->
+      <section id="ordersSection" style="display:none;">
+        <h3>Recent Orders</h3>
+        <div id="ordersTable" class="table-container">Loading...</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="firebase-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
